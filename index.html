@@ -1,0 +1,163 @@
+<!Doctype html>
+<html>
+<head>
+	<title>picture</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/Grid.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="js/jquery.kiss-slider.js"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<ul id="slider">
+				<li>
+					<img src="images/01.jpg">
+				</li>
+				<li>
+					<img src="images/02.jpg">
+				</li>
+				<li>
+					<img src="images/03.jpg">
+				</li>
+				<li>
+					<img src="images/04.jpg">
+				</li>
+				<li>
+					<img src="images/05.jpg">
+				</li>
+				<li>
+					<img src="images/06.jpg">
+				</li>
+				<li>
+					<img src="images/07.jpg">
+				</li>
+				<li>
+					<img src="images/08.jpg">
+				</li>
+				<li>
+					<img src="images/09.jpg">
+				</li>
+				<li>
+					<img src="images/10.jpg">
+				</li>
+				<li>
+					<img src="images/11.jpg">
+				</li>
+				<li>
+					<img src="images/12.jpg">
+				</li>
+				<li>
+					<img src="images/13.jpg">
+				</li>
+				<li>
+					<img src="images/14.jpg">
+				</li>
+				<li>
+					<img src="images/15.jpg">
+				</li>
+				<li>
+					<img src="images/16.jpg">
+				</li>
+				<li>
+					<img src="images/17.jpg">
+				</li>
+				<li>
+					<img src="images/18.jpg">
+				</li>
+				<li>
+					<img src="images/19.jpg">
+				</li>
+				<li>
+					<img src="images/20.jpg">
+				</li>
+				<li>
+					<img src="images/21.jpg">
+				</li>
+				<li>
+					<img src="images/22.jpg">
+				</li>
+				<li>
+					<img src="images/23.jpg">
+				</li>
+				<li>
+					<img src="images/24.jpg">
+				</li>
+				<li>
+					<img src="images/25.jpg">
+				</li>
+				<li>
+					<img src="images/26.jpg">
+				</li>
+				<li>
+					<img src="images/27.jpg">
+				</li>
+				<li>
+					<img src="images/28.jpg">
+				</li>
+				<li>
+					<img src="images/29.jpg">
+				</li>
+				<li>
+					<img src="images/30.jpg">
+				</li>
+				<li>
+					<img src="images/31.jpg">
+				</li>
+				<li>
+					<img src="images/32.jpg">
+				</li>
+				<li>
+					<img src="images/33.jpg">
+				</li>
+				<li>
+					<img src="images/34.jpg">
+				</li>
+				<li>
+					<img src="images/35.jpg">
+				</li>
+				<li>
+					<img src="images/36.jpg">
+				</li>
+				<li>
+					<img src="images/37.jpg">
+				</li>
+				<li>
+					<img src="images/38.jpg">
+				</li>
+				<li>
+					<img src="images/39.jpg">
+				</li>
+				<li>
+					<img src="images/40.jpg">
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="buttons">
+				<div class="left">
+					<button href="#" class="previous">previous page</button>
+				</div>
+				<div class="center">
+					<i class='fa fa-circle dot' aria-hidden='true'></i>
+				</div>
+				<div class="right">
+					<button href="#" class="next">next page</button>
+				</div>
+			</div>
+		</div>	
+	</div>
+</body>
+<script>
+	$(window).load(function() {
+	    $('#slider').kissSlider({
+			prevSelector: ' .previous',
+			nextSelector: ' .next'
+		});
+		$('#slider').kissSlider('setSize',{state:0});
+	});
+</script>
+</html>

@@ -1,0 +1,99 @@
+html, body{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	font-family: Helvetica, sans-serif;
+}
+
+li{
+    text-align: center;
+    list-style: none;
+}
+
+#slider{
+    /*width: 1000px;*/
+    margin: 0 auto;
+	margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 26px;
+	/*margin-bottom: 149px;*/
+}
+.buttons{
+    width: 1000px;
+    margin: 0  auto;
+    margin-bottom: 101px;
+    overflow: hidden;
+    /*text-align: center;*/
+}
+
+.previous,
+.next {
+    width: 83px;
+    height: 29px;
+    font-size: 10px;
+    line-height: 29px;
+    display: block;
+
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.previous{
+    float: right;
+    margin-left: 12px;
+}
+.next {
+    float:left;
+    margin-right: 12px;
+}
+.previous:hover,
+.previous:focus,
+.next:hover,
+.next:focus {
+    color: white;
+    outline: none;
+    background: black;
+}
+.left, .right{
+    margin:0;
+    padding:0;
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    border
+}
+.left{
+    float: left;
+}
+.center{
+    display: none;
+    width: 30%;
+    height: 29px;
+    text-align: center;
+
+}
+.right{
+    float: right;
+}
+.empty{
+    display: inline-block;
+    width:270px;
+    height: 29px;
+}
+.dot{
+    margin: 0;
+    padding: 0;
+    width: 31px;
+    height: 29px;
+    /*display: inline-block;*/
+    text-align: center;
+    /*float:left;*/
+    line-height: 29px;
+    font-size: 29px;
+    /*margin: 0 auto;*/
+}
