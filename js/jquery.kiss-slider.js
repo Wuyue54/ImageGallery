@@ -114,7 +114,7 @@
 										   'margin-right': 0 ,
 										   'float': 'left'
 											});
-					$('.left').show();
+					$('.left').css('display','inline-block');
 					$(s.prevSelector).show();
 					$('.left').width("35%");
 					$('.right').width("35%");
@@ -139,10 +139,11 @@
 					$('.center').css('display','none');
 					
 					$(s.nextSelector).text('next page');
-					$('.left').show();
+					$('.left').css('display','inline-block');
 					$('.right').width('50%');
 					$(s.prevSelector).show();
-					$(s.prevSelector).css({'margin-right': 56,
+					$(s.prevSelector).css({'float':'right',
+										   'margin-right': 56,
 										   'margin-left': 0 
 										  });
 					
@@ -164,16 +165,28 @@
 			}
 			$(s.prevSelector).click(function(e) {
 				$(s.nextSelector).text('next page');
+				$('.center').css('display','none');
+
 				if(that.currentIndex == 1){
-					$('.center').css('display','none');
 					$('.left').hide();
 					$('.right').width('100%');
 					$(s.nextSelector).css('float','right');
 					$(s.nextSelector).css({'margin-right': offset/2});
 					$(s.prevSelector).hide();
 				}else{
+					$('.left').css('display','inline-block');
+					$('.left').width('50%');
 					$(s.prevSelector).show();
 					$('.right').width('50%');
+					$(s.prevSelector).css({'float':'right',
+										   'margin-right': 56,
+										   'margin-left': 0 
+										  });
+					
+					$(s.nextSelector).css({'float':'left',
+										   'margin-left': 56,
+										   'margin-right': 0
+									      });
 				}
 				that.prevSlide();
 				e.preventDefault();
@@ -342,7 +355,7 @@
 			$('.buttons').width($current.children().first().width());
 		}else{
 			if(dir == 1){
-				console.log(this.$slides.length);
+				// console.log(this.$slides.length);
 				if(this.currentIndex<this.$slides.length-1){
 					tempIndex = this.currentIndex+1;
 				}else{

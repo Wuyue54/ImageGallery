@@ -36,11 +36,15 @@ li{
     font-size: 10px;
     line-height: 29px;
     display: block;
-
     cursor: pointer;
     border: none;
     outline: none;
     background: transparent;
+    -webkit-transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 .previous{
     float: right;
@@ -65,7 +69,6 @@ li{
     position: relative;
     width: 50%;
     overflow: hidden;
-    border
 }
 .left{
     float: left;
