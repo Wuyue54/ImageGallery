@@ -26,7 +26,7 @@
 						if (preg_match("/.txt/i", $file)){
 							$rightDir = "images/".$file;
 							$myfile = fopen($rightDir, "r") or die("Unable to open file!");
-							echo fread($myfile,filesize($rightDir));
+							echo "<li>".fread($myfile,filesize($rightDir))."</li>";
 							fclose($myfile);
 						    // echo "<iframe width='640' height='360' src='https://www.youtube.com/embed/-liTSLuDVPs?rel=0&amp;controls=0' frameborder='0' allowfullscreen></iframe>";
 						}else{
