@@ -20,15 +20,24 @@
 							return preg_match('@\.(gif|jpe?g|png|txt)$@i', $this->current());
 						}
 					}
+					$filenames = array();
 
 					foreach (new ImageFilter(new DirectoryIterator('images')) as $file) {
-						 // echo "filename:" . $file . "<br>";
+						if ($file->isFile()) {
+            				$filenames[] = $file->getFilename();
+        				}
+        				sort($filenames);
+					    // print_r($filenames);
+					    // echo "\n";
+						
+					}
+
+					foreach($filenames as $file){
 						if (preg_match("/.txt/i", $file)){
 							$rightDir = "images/".$file;
 							$myfile = fopen($rightDir, "r") or die("Unable to open file!");
 							echo "<li>".fread($myfile,filesize($rightDir))."</li>";
 							fclose($myfile);
-						    // echo "<iframe width='640' height='360' src='https://www.youtube.com/embed/-liTSLuDVPs?rel=0&amp;controls=0' frameborder='0' allowfullscreen></iframe>";
 						}else{
 							echo "<li><img src='images/".htmlentities($file)."'/></li>";
 						}
