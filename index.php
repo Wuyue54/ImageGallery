@@ -6,11 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<link rel="stylesheet" type="text/css" href="style/Grid.css">
+	<link rel="stylesheet" href="style/introLoader.min.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/jquery.kiss-slider.js"></script>
+	<script src="js/jquery.introLoader.pack.min.js"></script>
 	
 </head>
 <body>
+	<div id="preLoading" class="introLoading"></div>
 	<div class="container">
 		<div class="row">
 			<ul id="slider">
@@ -26,12 +29,12 @@
 						if ($file->isFile()) {
             				$filenames[] = $file->getFilename();
         				}
-        				sort($filenames);
-					    // print_r($filenames);
-					    // echo "\n";
-						
+        				
+					   
 					}
-
+					sort($filenames);
+					// print_r($filenames);
+					// echo "\n";		
 					foreach($filenames as $file){
 						if (preg_match("/.txt/i", $file)){
 							$rightDir = "images/".$file;
@@ -49,19 +52,24 @@
 		<div class="row">
 			<div class="buttons">
 				<div class="left">
-					<button href="#" class="previous">previous page</button>
+					<button class="previous">previous page</button>
 				</div>
 				<div class="center">
 					<i class='fa fa-circle dot' aria-hidden='true'></i>
 				</div>
 				<div class="right">
-					<button href="#" class="next">next page</button>
+					<button  class="next">next page</button>
 				</div>
 			</div>
 		</div>	
 	</div>
 </body>
 <script>
+
+	$(document).ready(function() {
+    	$("#preLoading").introLoader();
+	});
+
 	$(window).load(function() {
 	    $('#slider').kissSlider({
 			prevSelector: ' .previous',
