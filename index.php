@@ -10,13 +10,8 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/jquery.kiss-slider.js"></script>
 	<script type="text/javascript" src="js/jpreloader.min.js"></script>
-
-
-
-	
 </head>
 <body>
-	<!-- <div id="preLoading" class="introLoading"></div> -->
 	<div class="container">
 		<div class="row">
 			<ul id="slider">
@@ -42,7 +37,9 @@
 						if (preg_match("/.txt/i", $file)){
 							$rightDir = "images/".$file;
 							$myfile = fopen($rightDir, "r") or die("Unable to open file!");
+
 							echo "<li class='video'>".fread($myfile,filesize($rightDir))."</li>";
+
 							fclose($myfile);
 						}else{
 							echo "<li><img src='images/".htmlentities($file)."'/></li>";
@@ -68,10 +65,6 @@
 	</div>
 </body>
 <script>
-
-	// $(document).ready(function() {
- //    	$("#preLoading").introLoader();
-	// });
 	$(document).ready(function() {
         $('body').jpreLoader({
         	loaderVPos: '50%'
@@ -87,10 +80,7 @@
 	});
 
 
-	
-
 	function initVideos() {
-
 	  // Find all video iframes on the page:
 	  var iframes = $(".video").find("iframe");
 
@@ -111,6 +101,6 @@
 	$('.ctrBtn').click(function(){
 		$('iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');   
 	});
-	
+
 </script>
 </html>
