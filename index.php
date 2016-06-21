@@ -10,8 +10,13 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/jquery.kiss-slider.js"></script>
 	<script type="text/javascript" src="js/jpreloader.min.js"></script>
+
+
+
+	
 </head>
 <body>
+	<!-- <div id="preLoading" class="introLoading"></div> -->
 	<div class="container">
 		<div class="row">
 			<ul id="slider">
@@ -37,9 +42,7 @@
 						if (preg_match("/.txt/i", $file)){
 							$rightDir = "images/".$file;
 							$myfile = fopen($rightDir, "r") or die("Unable to open file!");
-
 							echo "<li class='video'>".fread($myfile,filesize($rightDir))."</li>";
-
 							fclose($myfile);
 						}else{
 							echo "<li><img src='images/".htmlentities($file)."'/></li>";
@@ -65,25 +68,31 @@
 	</div>
 </body>
 <script>
+(function(){
+
+	//preloading
 	$(document).ready(function() {
         $('body').jpreLoader({
         	loaderVPos: '50%'
         });
     });
 
+	//inite slider
+	var animateDuration = 400;
+	
 	$(window).load(function() {
 	    $('#slider').kissSlider({
 			prevSelector: ' .previous',
-			nextSelector: ' .next'
+			nextSelector: ' .next',
+			slideDuration: animateDuration
 		});
 		$('#slider').kissSlider('setSize',{state:0});
 	});
 
-
+	// pause video
 	function initVideos() {
 	  // Find all video iframes on the page:
 	  var iframes = $(".video").find("iframe");
-
 	  // For each of them:
 	  for (var i = 0; i < iframes.length; i++) {
 	    // If "enablejsapi" is not set on the iframe's src, set it:
@@ -98,9 +107,42 @@
 	}
 	initVideos();
 
-	$('.ctrBtn').click(function(){
-		$('iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');   
+	var totalLength  = $('#slider').children().length;
+
+	var count  = 0 ; 
+
+	$('.previous').click(function(){
+		$(this).prop("disabled",true);
+		if(count !== 0 ){
+			count -- ;
+		}
+		if($('#slider').children().eq(count+1).attr('class')=="video"){
+			console.log
+			$('iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');   
+		}
+		setTimeout(function(){
+        	$('.previous').removeAttr("disabled");
+    	}, animateDuration);
 	});
 
+	$('.next').click(function(){
+		$(this).prop("disabled",true);
+		if(count !== totalLength - 1){
+			count ++ ;
+		}else{
+			count = 0; 
+		}
+		if($('#slider').children().eq(count-1).attr('class')=="video"||($('#slider').children().eq(count-1).attr('class')=="video"&&count==totalLength)){
+			$('iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');   
+		}
+		setTimeout(function(){
+        	$('.next').removeAttr("disabled");
+        	console.log("asdf");
+    	}, animateDuration);
+	});
+	// $('.ctrBtn').click(function(){
+	// 	$('iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');   
+	// });
+}());
 </script>
 </html>
